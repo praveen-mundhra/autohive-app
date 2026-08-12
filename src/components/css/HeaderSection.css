@@ -1,0 +1,49 @@
+/* --- Dynamic Sidebar Resizing --- */
+.category-sidebar {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+}
+
+/* Open State Width */
+.category-sidebar.open {
+  width: 260px;
+  min-width: 260px;
+  opacity: 1;
+}
+
+/* Closed State Width */
+.category-sidebar.closed {
+  width: 0px;
+  min-width: 0px;
+  opacity: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* --- Hero Section Resizing --- */
+.hero-content-col {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  flex: 1 1 auto;
+}
+
+/* Chevron Rotation */
+.transition-icon {
+  transition: transform 0.25s ease-in-out;
+  font-size: 0.85rem;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Category Item Hover */
+.category-menu .list-group-item {
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.category-menu .list-group-item:hover {
+  background-color: #fff0f2;
+  color: #ff002b;
+}

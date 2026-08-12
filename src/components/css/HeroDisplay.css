@@ -1,0 +1,55 @@
+/* --- Banner Base Styling --- */
+.hero-banner {
+  background: linear-gradient(90deg, #010f1d 25%, #192c3df9 40%, #e9ecef 100%);
+  min-height: 480px;
+}
+
+.hero-title {
+  color: white;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.hero-subtitle {
+  color: white;
+  max-width: 420px;
+  line-height: 1.5;
+  font-size: 12px;
+}
+
+.hero-image {
+  max-height: 350px;
+  object-fit: contain;
+  filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.15));
+  align-items: right;
+}
+
+/* --- React Slick Custom Dots Styling --- */
+.slick-dots.custom-dots {
+  bottom: 15px;
+  z-index: 5;
+}
+
+.slick-dots.custom-dots li {
+  margin: 0 4px;
+  width: 10px;
+  height: 10px;
+}
+
+.slick-dots.custom-dots li button {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+}
+
+.slick-dots.custom-dots li button:before {
+  font-size: 10px;
+  color: #cccccc;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.slick-dots.custom-dots li.slick-active button:before {
+  color: #ff002b !important; /* Active red dot */
+  font-size: 12px;
+}

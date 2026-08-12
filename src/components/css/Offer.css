@@ -1,0 +1,367 @@
+.offer-card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 30px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 20px;
+
+  padding: 0 15px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   LEFT BIG CARD
+========================= */
+
+.card-box-1 {
+  width: 100%;
+  height: 560px;
+}
+
+
+.card {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 8px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.card-box-2 {
+  width: 100%;
+  height: 560px;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+
+  gap: 20px;
+}
+
+
+/* =========================
+   BACKGROUND IMAGES
+========================= */
+
+.sparePart {
+  background-image: url("https://res.cloudinary.com/m51f0hzh/image/upload/v1786539987/ChatGPT_Image_Aug_12_2026_06_23_42_PM_ynlocn.png");
+}
+
+
+.newArrival {
+  background-image: url("https://res.cloudinary.com/m51f0hzh/image/upload/v1786539986/ChatGPT_Image_Aug_12_2026_06_24_51_PM_l3apb3.png");
+}
+
+
+.car {
+  background-image: url("https://res.cloudinary.com/m51f0hzh/image/upload/v1786539986/ChatGPT_Image_Aug_12_2026_06_23_50_PM_qnslp2.png");
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.offer-content {
+  position: absolute;
+
+  top: 45px;
+  left: 40px;
+
+  z-index: 2;
+}
+
+
+/* Subtitle */
+
+.subtitle {
+  margin: 0 0 22px;
+
+  color: white;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+
+  gap: 18px;
+}
+
+
+/* Small line after subtitle */
+
+.subtitle span {
+  display: block;
+
+  width: 65px;
+  height: 3px;
+
+  background: white;
+}
+
+
+/* Heading */
+
+.title {
+  margin: 0;
+
+  color: white;
+
+  font-size: 38px;
+  line-height: 1.25;
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.shop-btn {
+  margin-top: 30px;
+
+  width: 150px;
+  height: 52px;
+
+  border: none;
+  border-radius: 4px;
+
+  background: white;
+  color: #222;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+
+.shop-btn:hover {
+  background: #111;
+  color: white;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================
+   RIGHT CARDS TEXT
+========================= */
+
+.newArrival .offer-content,
+.car .offer-content {
+  top: 35px;
+  left: 35px;
+}
+
+
+.newArrival .subtitle,
+.car .subtitle {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+
+.newArrival .title,
+.car .title {
+  font-size: 25px;
+}
+
+
+.newArrival .shop-btn,
+.car .shop-btn {
+  width: 125px;
+  height: 45px;
+
+  margin-top: 22px;
+
+  font-size: 14px;
+}
+
+
+/* Red button on car card */
+
+.car .shop-btn {
+  background: #ff1515;
+  color: white;
+}
+
+
+.car .shop-btn:hover {
+  background: white;
+  color: #111;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .offer-card {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .card-box-1,
+  .card-box-2 {
+    height: 450px;
+  }
+
+  .card-box-2 {
+    gap: 12px;
+  }
+
+  .offer-content {
+    top: 30px;
+    left: 25px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .newArrival .title,
+  .car .title {
+    font-size: 20px;
+  }
+
+  .newArrival .offer-content,
+  .car .offer-content {
+    top: 25px;
+    left: 22px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .offer-card {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 15px;
+
+    padding: 0 12px;
+  }
+
+
+  .card-box-1 {
+    width: 100%;
+    height: 450px;
+  }
+
+
+  .card-box-2 {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+
+  .newArrival,
+  .car {
+    height: 250px;
+  }
+
+
+  .offer-content {
+    top: 30px;
+    left: 25px;
+  }
+
+
+  .title {
+    font-size: 28px;
+  }
+
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+
+  .shop-btn {
+    width: 125px;
+    height: 45px;
+  }
+
+
+  .newArrival .title,
+  .car .title {
+    font-size: 22px;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 400px) {
+
+  .card-box-1 {
+    height: 400px;
+  }
+
+  .newArrival,
+  .car {
+    height: 220px;
+  }
+
+  .offer-content {
+    top: 22px;
+    left: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .newArrival .title,
+  .car .title {
+    font-size: 19px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .subtitle span {
+    width: 40px;
+  }
+}

@@ -1,0 +1,102 @@
+/* ==========================================
+   Top Header Custom Styles
+   ========================================== */
+
+/* --- Container Base --- */
+header.w-100 {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* --- Logo Styling --- */
+.tracking-wider {
+  letter-spacing: 1px;
+  /* display: flex;
+  flex-direction: column; */
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.tracking-wider img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.tracking-wider h3 {
+  margin-bottom: 0;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #ffffff;
+}
+
+
+/* --- Text Custom Utility Classes --- */
+.extra-small {
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.small {
+  font-size: 0.875rem;
+}
+
+/* --- Icons --- */
+.bi {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Call to Action Button --- */
+header .btn-danger {
+  border-radius: 4px;
+  border: 0.2rem solid #b02a37;
+  padding: 13px 20px;
+  transition: all 0.25s ease-in-out;
+  background-color: #d8263871;
+  box-shadow: 0 2px 4px rgba(201, 98, 108, 0.25);
+}
+
+header .btn-danger:hover {
+  background-color: #bb2d3b;
+  border-color: #b02a37;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(220, 53, 69, 0.35);
+}
+
+/* --- Responsive Layout Adjustments --- */
+@media (max-width: 992px) {
+  /* Stack top bar on tablets and mobile */
+  header .bg-black {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  /* Center info items */
+  header .d-flex.align-items-center.gap-4 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Smaller logo text and spacing on smartphones */
+  .tracking-wider img {
+    height: 32px;
+  }
+
+  .tracking-wider h3 {
+    font-size: 1.25rem;
+  }
+
+  header .d-flex.align-items-center.gap-4 {
+    flex-direction: column;
+    gap: 0.75rem !important;
+  }
+}
