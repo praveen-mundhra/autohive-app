@@ -1,29 +1,21 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import ProductCard from './ProductCard';
+import { useShop } from '../context/ShopContext';
 import './css/FeaturedProducts.css';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'slick-carousel/slick/slick.css'; 
-import 'slick-carousel/slick/slick-theme.css';
-import '../index.css';
-
-// Custom Next Arrow Component
 const NextArrow = ({ onClick }) => (
   <button className="slick-arrow-custom next-arrow" onClick={onClick}>
     <i className="bi bi-chevron-right"></i>
   </button>
 );
 
-// Custom Prev Arrow Component
 const PrevArrow = ({ onClick }) => (
   <button className="slick-arrow-custom prev-arrow" onClick={onClick}>
     <i className="bi bi-chevron-left"></i>
   </button>
 );
 
-// Dummy dataset with Cloudinary images & category tags
 const allFeaturedProducts = [
   {
     id: 1,
@@ -92,68 +84,59 @@ const allFeaturedProducts = [
     oldPrice: '250.00',
     discount: '-30%',
     rating: 4,
-    category: 'Hand Tool', // Standardized to match button label
+    category: 'Hand Tool',
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1786531247/image-removebg-preview_32_qkdax8.png'
   }
 ];
 
 const FeaturedProducts = () => {
-  // Active Category State
+  const { searchQuery } = useShop();
   const [activeCategory, setActiveCategory] = useState('All Parts');
 
-  // Filter products based on selected active category button
-  const filteredProducts = activeCategory === 'All Parts'
-    ? allFeaturedProducts
-    : allFeaturedProducts.filter((product) => product.category === activeCategory);
+  // Filter both by active tab AND user search query
+  const filteredProducts = allFeaturedProducts.filter((product) => {
+    const matchesCategory =
+      activeCategory === 'All Parts' || product.category === activeCategory;
+    const matchesSearch = product.title
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
-  // Slick Carousel Configuration
   const sliderSettings = {
     dots: false,
-    infinite: filteredProducts.length > 4, // Loop only if items > 4
+    infinite: filteredProducts.length > 4,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: Math.min(4, Math.max(1, filteredProducts.length)),
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1,
-        }
-      }
+      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 2 } },
+      { breakpoint: 576, settings: { slidesToShow: 1 } }
     ]
   };
 
   return (
-    <section id="featured-products">
-    <div className="p-4 position-relative">
+    <div className="p-4 position-relative" id="featured-section">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <div>
-          <span className="text-danger fw-bold small text-uppercase">Featured Products ———</span>
+          <span className="text-danger fw-bold small text-uppercase">
+            Featured Products ———
+          </span>
           <h5 className="fw-bold text-dark mt-1 mb-0">Auto Parts For All Model</h5>
         </div>
 
-        {/* Filter Buttons */}
         <div className="btn-group gap-2">
           {['All Parts', 'Power Tools', 'Hand Tool'].map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
               className={`btn btn-sm rounded transition ${
-                activeCategory === category ? 'btn-danger' : 'btn-light text-secondary'
+                activeCategory === category
+                  ? 'btn-danger'
+                  : 'btn-light text-secondary'
               }`}
             >
               {category}
@@ -162,24 +145,23 @@ const FeaturedProducts = () => {
         </div>
       </div>
 
-      {/* React Slick Carousel */}
       <div className="px-3">
         {filteredProducts.length > 0 ? (
-          <Slider key={activeCategory} {...sliderSettings}>
+          <Slider key={activeCategory + searchQuery} {...sliderSettings}>
             {filteredProducts.map((item) => (
-              <div key={item.id} className="px-2 py-1">
+              <div key={item.id} className="px-3 py-1">
                 <ProductCard product={item} />
               </div>
             ))}
           </Slider>
         ) : (
-          <div className="text-center text-muted py-4">
-            No products available in this category.
+          <div className="text-center text-muted py-5">
+            <i className="bi bi-search fs-3 text-secondary d-block mb-2"></i>
+            No parts found matching "{searchQuery}".
           </div>
         )}
       </div>
     </div>
-    </section>
   );
 };
 

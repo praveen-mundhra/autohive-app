@@ -1,20 +1,4 @@
-/* --- Filter Bar Accent Line --- */
-.title-line {
-  display: inline-block;
-  width: 35px;
-  height: 2px;
-  background-color: #ff002b;
-}
-
-.vehicle-filter-bar .form-select {
-  border-color: #e2e8f0;
-  font-size: 0.85rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  background-color: #f8f9fa;
-}
-
-.vehicle-filter-bar .form-select:focus {
-  border-color: #ff002b;
+.vehicle-filter-container select:focus {
+  border-color: #dc3545;
   box-shadow: none;
 }

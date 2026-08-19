@@ -1,11 +1,9 @@
 .brand-newsletter-section .extra-small {
   font-size: 11px;
 }
-
 .brand-logos span {
   letter-spacing: 1px;
 }
-
 .newsletter-input input:focus {
   box-shadow: none;
 }

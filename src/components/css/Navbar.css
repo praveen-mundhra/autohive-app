@@ -5,7 +5,7 @@
 
 .tracking-wide {
   letter-spacing: 0.5px;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
 /* --- Category Arrow Toggle Animation --- */
@@ -26,6 +26,8 @@
 .category-menu {
   background-color: #ffffff;
   border-top: 2px solid #ff002b !important;
+  z-index: 1050;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .category-menu .list-group-item {
@@ -37,8 +39,12 @@
 
 .category-menu .list-group-item:hover {
   background-color: #fff0f2;
-  color: #ff002b;
+  color: #ff002b !important;
   padding-left: 1.25rem !important; /* Slight slide right effect */
+}
+
+.category-menu .list-group-item:hover i {
+  color: #ff002b !important;
 }
 
 /* --- Active Nav Link Styling --- */
@@ -97,4 +103,8 @@
 
 .extra-small {
   font-size: 0.75rem;
+}
+
+.pointer {
+  cursor: pointer;
 }
