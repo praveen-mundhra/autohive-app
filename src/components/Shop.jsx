@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useShop } from '../context/ShopContext';
 import ProductCard from './ProductCard';
-import './css/Shop.css';
+// import './css/Shop.css';
 
 const initialProducts = [
   {
@@ -361,7 +361,7 @@ const categoryList = [
 const Shop = () => {
   const { searchQuery, setSearchQuery, activeCategory, setActiveCategory } = useShop();
 
-  const [maxPrice, setMaxPrice] = useState(1000);
+  const [maxPrice, setMaxPrice] = useState(10000);
   const [inStockOnly, setInStockOnly] = useState(false);
   const [minRating, setMinRating] = useState(0);
   const [sortBy, setSortBy] = useState('default');
@@ -409,7 +409,7 @@ const Shop = () => {
 
   const handleResetFilters = () => {
     setActiveCategory('All');
-    setMaxPrice(1000);
+    setMaxPrice(10000);
     setInStockOnly(false);
     setMinRating(0);
     setSortBy('default');
