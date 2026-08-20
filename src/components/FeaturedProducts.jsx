@@ -89,6 +89,8 @@ const allFeaturedProducts = [
   }
 ];
 
+const categoryOptions = ['All Parts', 'Power Tools', 'Hand Tool'];
+
 const FeaturedProducts = () => {
   const { searchQuery } = useShop();
   const [activeCategory, setActiveCategory] = useState('All Parts');
@@ -112,15 +114,40 @@ const FeaturedProducts = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 576, settings: { slidesToShow: 1 } }
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: Math.min(4, Math.max(1, filteredProducts.length)),
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1, // 1 Card visible at a time on mobile view
+          slidesToScroll: 1
+        }
+      }
     ]
   };
 
   return (
     <div className="p-4 position-relative" id="featured-section">
-      <div className="d-flex justify-content-between align-items-center mb-4">
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
         <div>
           <span className="text-danger fw-bold small text-uppercase">
             Featured Products ———
@@ -128,8 +155,24 @@ const FeaturedProducts = () => {
           <h5 className="fw-bold text-dark mt-1 mb-0">Auto Parts For All Model</h5>
         </div>
 
-        <div className="btn-group gap-2">
-          {['All Parts', 'Power Tools', 'Hand Tool'].map((category) => (
+        {/* --- Mobile View: Dropdown Select --- */}
+        <div className="d-block d-md-none w-100">
+          <select
+            className="form-select form-select-sm border-danger fw-semibold text-dark shadow-sm"
+            value={activeCategory}
+            onChange={(e) => setActiveCategory(e.target.value)}
+          >
+            {categoryOptions.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* --- Desktop View: Button Group --- */}
+        <div className="btn-group gap-2 d-none d-md-flex">
+          {categoryOptions.map((category) => (
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
@@ -149,7 +192,7 @@ const FeaturedProducts = () => {
         {filteredProducts.length > 0 ? (
           <Slider key={activeCategory + searchQuery} {...sliderSettings}>
             {filteredProducts.map((item) => (
-              <div key={item.id} className="px-3 py-1">
+              <div key={item.id} className="px-2 py-1">
                 <ProductCard product={item} />
               </div>
             ))}
