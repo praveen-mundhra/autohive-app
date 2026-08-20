@@ -18,12 +18,17 @@ const Navbar = () => {
 
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const categoryRef = useRef(null);
+  const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (categoryRef.current && !categoryRef.current.contains(event.target)) {
         setIsCategoryOpen(false);
+      }
+      if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
+        setIsMobileMenuOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -44,6 +49,7 @@ const Navbar = () => {
 
   const handleNavClick = (navName) => {
     setActiveNav(navName);
+    setIsMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -65,8 +71,8 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom py-0 position-relative">
       <div className="container-fluid px-0">
         
-        {/* Category Dropdown */}
-        <div className="category-dropdown-container position-relative" ref={categoryRef}>
+        {/* ================= DESKTOP: Category Dropdown ================= */}
+        <div className="d-none d-lg-block category-dropdown-container position-relative" ref={categoryRef}>
           <button 
             type="button"
             className={`btn btn-danger text-white fw-bold d-flex align-items-center justify-content-between px-4 py-4 rounded-0 border-0 w-100 ${isCategoryOpen ? 'category-btn-active' : ''}`}
@@ -96,8 +102,130 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Links or Search Bar */}
-        <div className="collapse navbar-collapse px-4" id="mainNavbar">
+        {/* ================= MOBILE: Left Hamburger Menu & Right Icons ================= */}
+        <div className="d-flex d-lg-none w-100 align-items-center justify-content-between px-3 py-2">
+          {/* Left More Options Button */}
+          <button
+            type="button"
+            className="btn btn-outline-danger btn-sm d-flex align-items-center gap-1 fw-bold mobile-menu-toggle-btn"
+            onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Toggle navigation menu"
+          >
+            <i className="bi bi-list fs-5"></i>
+            <span className="small text-uppercase">Menu</span>
+          </button>
+
+          {/* Right Smaller Action Buttons */}
+          <div className="d-flex align-items-center gap-2">
+            <button 
+              type="button"
+              className="btn btn-light rounded-circle p-1 icon-btn-sm" 
+              aria-label="Search"
+              onClick={() => setIsSearchActive(!isSearchActive)}
+              title="Search"
+            >
+              <i className="bi bi-search small"></i>
+            </button>
+
+            <div className="position-relative">
+              <button 
+                type="button"
+                className="btn btn-light rounded-circle p-1 icon-btn-sm" 
+                aria-label="Cart"
+                onClick={() => setIsCartModalOpen(true)}
+                title="View Cart"
+              >
+                <i className="bi bi-bag small"></i>
+              </button>
+              {cartCount > 0 && (
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger extra-small-badge-sm">
+                  {cartCount > 9 ? '9+' : cartCount}
+                </span>
+              )}
+            </div>
+
+            <div className="position-relative">
+              <button 
+                type="button"
+                className="btn btn-light rounded-circle p-1 icon-btn-sm" 
+                aria-label="Wishlist"
+                onClick={() => setIsWishlistModalOpen(true)}
+                title="View Favorites"
+              >
+                <i className="bi bi-heart small"></i>
+              </button>
+              {wishlist.length > 0 && (
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger extra-small-badge-sm">
+                  {wishlist.length}
+                </span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* ================= MOBILE: Search Input Bar ================= */}
+        {isSearchActive && (
+          <div className="d-lg-none w-100 px-3 pb-2">
+            <div className="input-group">
+              <input
+                type="text"
+                className="form-control border-danger form-control-sm"
+                placeholder="Search automotive parts..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                autoFocus
+              />
+              <button
+                className="btn btn-danger btn-sm px-3"
+                type="button"
+                onClick={() => {
+                  setIsSearchActive(false);
+                  setSearchQuery('');
+                }}
+              >
+                <i className="bi bi-x-lg"></i>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ================= MOBILE: Left Slide-out Drawer ================= */}
+        {isMobileMenuOpen && (
+          <div className="mobile-drawer-backdrop d-lg-none">
+            <div className="mobile-drawer-content bg-white shadow-lg h-100 p-0" ref={mobileMenuRef}>
+              <div className="d-flex justify-content-between align-items-center p-3 bg-black text-white">
+                <span className="fw-bold fs-6">Navigation</span>
+                <button
+                  type="button"
+                  className="btn-close btn-close-white"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                ></button>
+              </div>
+
+              <ul className="list-group list-group-flush pt-2">
+                {navLinks.map((link) => (
+                  <li key={link} className="list-group-item border-0 px-0 py-0">
+                    <button
+                      type="button"
+                      className={`btn w-100 text-start px-4 py-3 border-0 d-flex justify-content-between align-items-center rounded-0 ${
+                        activeNav === link
+                          ? 'bg-danger text-white fw-bold'
+                          : 'text-dark bg-transparent'
+                      }`}
+                      onClick={() => handleNavClick(link)}
+                    >
+                      <span>{link}</span>
+                      <i className={`bi bi-chevron-right extra-small ${activeNav === link ? 'text-white' : 'text-muted'}`}></i>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {/* ================= DESKTOP: Navbar Links & Icons ================= */}
+        <div className="collapse navbar-collapse px-4 d-none d-lg-flex" id="mainNavbar">
           {isSearchActive ? (
             <div className="d-flex align-items-center flex-grow-1 me-4 my-2 my-lg-0">
               <div className="input-group">
@@ -139,7 +267,7 @@ const Navbar = () => {
             </ul>
           )}
 
-          {/* Action Icons */}
+          {/* Desktop Right Action Icons */}
           <div className="d-flex align-items-center gap-3 pe-4 ms-auto">
             <button 
               type="button"
