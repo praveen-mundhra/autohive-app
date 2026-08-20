@@ -3,7 +3,7 @@ import { useShop } from '../context/ShopContext';
 import './css/ProductCard.css';
 
 const ProductCard = ({ product, compact = false }) => {
-  const { addToCart, toggleWishlist, isInWishlist, showToast } = useShop();
+  const { addToCart, toggleWishlist, isInWishlist } = useShop();
 
   if (!product) return null;
   const isFavorite = isInWishlist(product.id);
