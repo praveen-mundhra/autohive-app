@@ -95,7 +95,6 @@ const FeaturedProducts = () => {
   const { searchQuery } = useShop();
   const [activeCategory, setActiveCategory] = useState('All Parts');
 
-  // Filter both by active tab AND user search query
   const filteredProducts = allFeaturedProducts.filter((product) => {
     const matchesCategory =
       activeCategory === 'All Parts' || product.category === activeCategory;
@@ -138,7 +137,7 @@ const FeaturedProducts = () => {
       {
         breakpoint: 576,
         settings: {
-          slidesToShow: 1, // 1 Card visible at a time on mobile view
+          slidesToShow: 1,
           slidesToScroll: 1
         }
       }
@@ -147,7 +146,7 @@ const FeaturedProducts = () => {
 
   return (
     <div className="p-4 position-relative" id="featured-section">
-      <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+      <div className="d-flex justify-content-between align-items-center mb-4 gap-2">
         <div>
           <span className="text-danger fw-bold small text-uppercase">
             Featured Products ———
@@ -155,10 +154,11 @@ const FeaturedProducts = () => {
           <h5 className="fw-bold text-dark mt-1 mb-0">Auto Parts For All Model</h5>
         </div>
 
-        {/* --- Mobile View: Dropdown Select --- */}
-        <div className="d-block d-md-none w-100">
+        {/* --- Mobile View: Small Dropdown on the Right of Heading --- */}
+        <div className="d-block d-md-none ms-auto">
           <select
-            className="form-select form-select-sm border-danger fw-semibold text-dark shadow-sm"
+            className="form-select form-select-sm border-danger fw-semibold text-dark shadow-sm py-1 px-2"
+            style={{ width: 'auto', minWidth: '110px', fontSize: '0.78rem' }}
             value={activeCategory}
             onChange={(e) => setActiveCategory(e.target.value)}
           >
