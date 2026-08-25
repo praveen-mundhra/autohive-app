@@ -1,3 +1,139 @@
 .flash-sales-container {
-  background-color: #111827 !important;
+  background: linear-gradient(135deg, #111827 0%, #1a202c 100%) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Pulsing Red Dot */
+.live-flash-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ff002b;
+  border-radius: 50%;
+  display: inline-block;
+  animation: livePulse 1.4s infinite;
+}
+
+@keyframes livePulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 0, 43, 0.7);
+  }
+  70% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 8px rgba(255, 0, 43, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 0, 43, 0);
+  }
+}
+
+.flash-glow {
+  text-shadow: 0 0 12px rgba(255, 0, 43, 0.45);
+}
+
+.timer-badge-box {
+  min-width: 68px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.timer-badge-box:hover {
+  transform: translateY(-2px);
+}
+
+.timer-digit {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
+}
+
+.flash-card-item {
+  transition: transform 0.3s ease;
+}
+
+.flash-card-item:hover {
+  transform: translateY(-4px);
+}
+
+/* Slider Arrow Buttons */
+.flash-slider-wrapper .slick-arrow-custom {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  color: #111827;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+}
+
+.flash-slider-wrapper .slick-arrow-custom:hover {
+  background-color: #ff002b;
+  color: #ffffff;
+  border-color: #ff002b;
+}
+
+.flash-slider-wrapper .prev-arrow {
+  left: -12px;
+}
+
+.flash-slider-wrapper .next-arrow {
+  right: -12px;
+}
+
+/* Slider Dots */
+.flash-slider-wrapper .slick-dots {
+  bottom: -24px;
+}
+
+.flash-slider-wrapper .slick-dots li button:before {
+  color: #ff002b !important;
+  font-size: 8px;
+}
+
+.flash-slider-wrapper .slick-dots li.slick-active button:before {
+  color: #ff002b !important;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+  .flash-sales-container {
+    padding: 1.25rem 0.5rem !important;
+  }
+
+  .flash-slider-wrapper {
+    padding: 0 16px;
+  }
+
+  .flash-slider-wrapper .slick-arrow-custom {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+
+  .flash-slider-wrapper .prev-arrow {
+    left: -4px;
+  }
+
+  .flash-slider-wrapper .next-arrow {
+    right: -4px;
+  }
+
+  .timer-badge-box {
+    min-width: 54px;
+    padding: 4px 6px !important;
+  }
+
+  .timer-digit {
+    font-size: 0.85rem !important;
+  }
 }
