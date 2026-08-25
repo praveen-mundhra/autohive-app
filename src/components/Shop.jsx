@@ -10,7 +10,7 @@ const initialProducts = [
     price: 480.0,
     oldPrice: 780.0,
     discount: '-38%',
-    rating: 4,
+    rating: 3.8,
     category: 'Tires & Wheels',
     inStock: true,
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1786530587/image-removebg-preview_29_nmw3za.png'
@@ -21,7 +21,7 @@ const initialProducts = [
     price: 380.0,
     oldPrice: 580.0,
     discount: '-30%',
-    rating: 4,
+    rating: 4.7,
     category: 'Tires & Wheels',
     inStock: true,
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1786531026/image-removebg-preview_31_jeziv0.png'
@@ -32,7 +32,7 @@ const initialProducts = [
     price: 160.0,
     oldPrice: 250.0,
     discount: '-30%',
-    rating: 5,
+    rating: 3,
     category: 'Power Tools',
     inStock: true,
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1786531759/image-removebg-preview_34_zb4vfv.png'
@@ -76,7 +76,7 @@ const initialProducts = [
     price: 160.0,
     oldPrice: 250.0,
     discount: '-30%',
-    rating: 4,
+    rating: 4.4,
     category: 'Interior Parts',
     inStock: false,
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1786531247/image-removebg-preview_32_qkdax8.png'
@@ -274,7 +274,7 @@ const initialProducts = [
     price: 15.0,
     oldPrice: 60.0,
     discount: '-25%',
-    rating: 4,
+    rating: 3.5,
     category: 'Hand Tool',
     inStock: true,
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1787142817/shopping_d3ht1k.webp'
@@ -285,7 +285,7 @@ const initialProducts = [
     price: 50.0,
     oldPrice: 60.0,
     discount: '-25%',
-    rating: 4,
+    rating: 4.3,
     category: 'Hand Tool',
     inStock: true,
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1787142879/shopping_zqsh2l.webp'
@@ -296,7 +296,7 @@ const initialProducts = [
     price: 11.0,
     oldPrice: 40.0,
     discount: '-25%',
-    rating: 4,
+    rating: 3.6,
     category: 'Hand Tool',
     inStock: true,
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1787143004/shopping_pflgv6.webp'
@@ -329,7 +329,7 @@ const initialProducts = [
     price: 4500.0,
     oldPrice: 6000.0,
     discount: '-26%',
-    rating: 4,
+    rating: 3.1,
     category: 'Engine & Drivetrain',
     inStock: true,
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1787143397/shopping_tu8zwv.webp'
@@ -340,7 +340,7 @@ const initialProducts = [
     price: 2800.0,
     oldPrice: 7500.0,
     discount: '-26%',
-    rating: 4,
+    rating: 5,
     category: 'Engine & Drivetrain',
     inStock: true,
     image: 'https://res.cloudinary.com/m51f0hzh/image/upload/v1787143496/shopping_ow1dun.webp'

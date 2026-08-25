@@ -11,40 +11,24 @@ import WeeklyCategories from './components/WeeklyCategories';
 import Footer from './components/Footer';
 import Modals from './components/Modals';
 import Shop from './components/Shop';
+import Products from './components/Products';
+import Blog from './components/Blog';
+import Page from './components/Page';
 import './App.css';
 
 function App() {
-  const { activeNav, setActiveNav } = useShop();
+  const { activeNav } = useShop();
 
-  // Dynamic View Switcher
   const renderContent = () => {
     switch (activeNav) {
       case 'Shop':
-      case 'Products':
         return <Shop />;
-
+      case 'Products':
+        return <Products />;
       case 'Blog':
-        return (
-          <div className="p-5 text-center bg-white border rounded shadow-sm my-4">
-            <h2 className="fw-bold text-dark">Latest Automotive News &amp; Articles</h2>
-            <p className="text-secondary small">Explore car maintenance guides, tuning tutorials, and expert tips.</p>
-            <button className="btn btn-danger btn-sm px-4 fw-bold mt-2" onClick={() => setActiveNav('Shop')}>
-              Go to Shop
-            </button>
-          </div>
-        );
-
+        return <Blog />;
       case 'Page':
-        return (
-          <div className="p-5 text-center bg-white border rounded shadow-sm my-4">
-            <h2 className="fw-bold text-dark">Custom Pages &amp; Services</h2>
-            <p className="text-secondary small">Information regarding warranties, OEM certification, and global shipping.</p>
-            <button className="btn btn-dark btn-sm px-4 fw-bold mt-2" onClick={() => setActiveNav('Home')}>
-              Back to Home
-            </button>
-          </div>
-        );
-
+        return <Page />;
       case 'Home':
       default:
         return (
@@ -67,7 +51,7 @@ function App() {
         {/* Universal Header & Navbar */}
         <HeaderSection />
 
-        {/* Dynamic Page Body */}
+        {/* Dynamic Page Section */}
         {renderContent()}
 
         {/* Universal Footer */}

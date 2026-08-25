@@ -1,0 +1,44 @@
+.products-page-wrapper {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.product-spec-card {
+  border-left: 4px solid #ff002b !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-spec-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12) !important;
+}
+
+.product-spec-img-box {
+  height: 170px;
+  background-color: #f3f4f6;
+  overflow: hidden;
+}
+
+.product-spec-img {
+  max-height: 140px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.product-spec-card:hover .product-spec-img {
+  transform: scale(1.06);
+}
+
+.specs-box {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.extra-small {
+  font-size: 11px;
+}
+
+.leading-relaxed {
+  line-height: 1.45;
+}

@@ -1,0 +1,60 @@
+.custom-page-wrapper {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.service-feature-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08) !important;
+}
+
+.feature-icon-box {
+  width: 48px;
+  height: 48px;
+}
+
+.about-img-box {
+  height: 300px;
+}
+
+.about-img-box img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.about-img-box:hover img {
+  transform: scale(1.03);
+}
+
+.faq-item {
+  background-color: #fdfdfd;
+  transition: background-color 0.2s ease;
+}
+
+.faq-item:hover {
+  background-color: #f8f9fa;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.transition-icon {
+  transition: transform 0.25s ease-in-out;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.extra-small {
+  font-size: 11px;
+}
+
+.leading-relaxed {
+  line-height: 1.5;
+}
