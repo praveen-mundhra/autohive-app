@@ -120,7 +120,7 @@ const Page = () => {
           <div className="col-lg-6">
             <div className="about-img-box rounded overflow-hidden shadow-sm">
               <img
-                src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=700"
+                src="https://res.cloudinary.com/m51f0hzh/image/upload/v1787659441/ChatGPT_Image_Aug_10_2026_06_30_49_PM_t016f9.png"
                 alt="AutoHive Workshop"
                 className="w-100 h-100 object-fit-cover"
               />
