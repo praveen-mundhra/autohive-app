@@ -11,7 +11,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer-container bg-black text-white pt-5 pb-3">
+    <footer className="footer-container w-100 bg-black text-white pt-5 pb-3">
       <div className="container-xl px-4">
         <div className="row g-4 pb-5 border-bottom border-dark">
           {/* Column 1: Brand Info */}

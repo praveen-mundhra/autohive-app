@@ -145,7 +145,7 @@ const FeaturedProducts = () => {
   };
 
   return (
-    <div className="p-4 position-relative" id="featured-section">
+    <div className="p-4 w-100 position-relative" id="featured-section">
       <div className="d-flex justify-content-between align-items-center mb-4 gap-2">
         <div>
           <span className="text-danger fw-bold small text-uppercase">

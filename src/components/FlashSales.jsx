@@ -110,7 +110,7 @@ const FlashSales = () => {
   };
 
   return (
-    <div className="bg-dark text-white p-4 position-relative mt-4 flash-sales-container rounded">
+    <div className="bg-dark text-white p-4 w-100 position-relative mt-4 flash-sales-container rounded">
       {/* Header & Live Pulse Icon */}
       <div className="text-center mb-4 flash-header-animation">
         <div className="d-inline-flex align-items-center gap-2 mb-1">

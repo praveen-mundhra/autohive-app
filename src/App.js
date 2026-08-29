@@ -46,7 +46,7 @@ function App() {
   };
 
   return (
-    <div className="bg-light min-vh-100">
+    <div className="bg-light w-100 min-vh-100">
       <div className="container-xl bg-white shadow-sm p-0 my-0 my-md-3">
         {/* Universal Header & Navbar */}
         <HeaderSection />

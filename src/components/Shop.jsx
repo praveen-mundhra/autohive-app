@@ -418,7 +418,7 @@ const Shop = () => {
   };
 
   return (
-    <div className="shop-content-area py-3">
+    <div className="shop-content-area w-100 py-3">
       {/* Banner */}
       <div className="bg-dark text-white py-4 px-4 mb-4 rounded">
         <div className="d-flex justify-content-between align-items-center">

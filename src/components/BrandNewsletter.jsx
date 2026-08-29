@@ -17,7 +17,7 @@ const BrandNewsletter = () => {
   };
 
   return (
-    <section className="brand-newsletter-section my-5">
+    <section className="brand-newsletter-section w-100 my-5">
       <div className="row g-0">
         <div className="col-md-6 bg-dark text-white p-5 d-flex flex-column justify-content-between">
           <div>

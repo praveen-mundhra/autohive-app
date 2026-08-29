@@ -20,7 +20,7 @@ const VehicleFilter = () => {
   };
 
   return (
-    <div className="px-4 py-3 vehicle-filter-container">
+    <div className="px-4 py-3 w-100 vehicle-filter-container">
       <div className="d-flex align-items-center gap-2 mb-3">
         <h6 className="fw-bold text-dark mb-0">Select Your Vehicle Parts</h6>
         <div className="bg-danger" style={{ width: '30px', height: '2px' }}></div>

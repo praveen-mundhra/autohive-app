@@ -180,7 +180,7 @@ const WeeklyCategories = () => {
   };
 
   return (
-    <section className="weekly-categories-container p-4">
+    <section className="weekly-categories-container p-4 w-100">
       <div className="text-center mb-5">
         <h2 className="fw-bold text-dark section-title">Weekly Top Categories</h2>
         <p className="text-secondary small max-w-550 mx-auto leading-relaxed">

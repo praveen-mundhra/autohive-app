@@ -68,7 +68,7 @@ const Navbar = () => {
   const navLinks = ['Home', 'Shop', 'Products', 'Blog', 'Page'];
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom py-0 position-relative">
+    <nav className="navbar navbar-expand-lg navbar-light w-100 bg-white border-bottom py-0 position-relative">
       <div className="container-fluid px-0">
         
         {/* ================= DESKTOP: Category Dropdown ================= */}

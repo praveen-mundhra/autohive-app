@@ -10,7 +10,7 @@ const ProductCard = ({ product, compact = false }) => {
 
   return (
     <div
-      className={`card h-100 border p-4 position-relative product-card custom-fixed-card ${
+      className={`card w-100 h-100 border p-4 position-relative product-card custom-fixed-card ${
         compact ? 'compact-card' : ''
       }`}
     >

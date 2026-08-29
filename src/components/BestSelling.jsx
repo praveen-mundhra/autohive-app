@@ -173,7 +173,7 @@ const BestSelling = () => {
   };
 
   return (
-    <section className="bestselling-section p-4 position-relative">
+    <section className="bestselling-section p-4 w-100 position-relative">
       <div className="d-flex justify-content-between align-items-center mb-4 gap-2">
         <div>
           <span className="text-danger fw-bold small text-uppercase">Product ———</span>
